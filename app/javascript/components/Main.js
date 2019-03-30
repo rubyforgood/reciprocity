@@ -1,11 +1,11 @@
 import React from "react"
 
 const Main = ({
-  fruitName
+  participantName
 }) => {
   return(
     <div>
-      <h1>{fruitName} are great!</h1>
+      <h1>{participantName} is great!</h1>
     </div>
   )
 }
