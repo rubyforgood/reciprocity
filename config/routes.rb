@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :referral_codes
   devise_for :users
   get '/', to: 'home#index'
 

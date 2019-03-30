@@ -1,0 +1,2 @@
+module ReferralCodesHelper
+end

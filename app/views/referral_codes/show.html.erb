@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nonce:</strong>
+  <%= @referral_code.nonce %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @referral_code.type %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @referral_code.code %>
+</p>
+
+<p>
+  <strong>Participant:</strong>
+  <%= @referral_code.participant %>
+</p>
+
+<p>
+  <strong>Used:</strong>
+  <%= @referral_code.used %>
+</p>
+
+<%= link_to 'Edit', edit_referral_code_path(@referral_code) %> |
+<%= link_to 'Back', referral_codes_path %>
