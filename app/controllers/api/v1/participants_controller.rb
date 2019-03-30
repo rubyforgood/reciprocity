@@ -1,4 +1,4 @@
-class Api::V1::FruitsController < ApplicationController
+class Api::V1::ParticipantsController < ApplicationController
   def index
     render json: Participant.all
   end
