@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 2019_03_30_220400) do
     t.index ["user_id"], name: "index_participants_on_user_id"
   end
 
+  create_table "referral_codes", force: :cascade do |t|
+    t.string "nonce"
+    t.string "code_type"
+    t.string "code"
+    t.bigint "participant_id"
+    t.boolean "used", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["participant_id"], name: "index_referral_codes_on_participant_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -52,4 +63,5 @@ ActiveRecord::Schema.define(version: 2019_03_30_220400) do
   end
 
   add_foreign_key "participants", "users"
+  add_foreign_key "referral_codes", "participants"
 end
