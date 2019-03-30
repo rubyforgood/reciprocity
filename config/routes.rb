@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   get '/', to: 'home#index'
+  resources :participants, only: [:new, :create, :show]
 
   get '/redeem', to: 'public_access#redeem'
   post '/redeem', to: 'public_access#redeem'
