@@ -60,6 +60,10 @@ jobs:
           command: bin/rails db:create; bin/rails db:schema:load --trace
 
       - run:
+          name: Rubocop for linting goodness
+          command: bundle exec rubocop
+
+      - run:
           name: Run rspec in parallel
           command: |
             bundle exec rspec --profile 10 \
