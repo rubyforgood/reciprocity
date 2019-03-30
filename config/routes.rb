@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   get '/', to: 'home#index'
 
-  get '/referral', to: 'referral_codes#index'
+  get '/redeem', to: 'public_access#redeem'
 
   namespace :api do
     namespace :v1 do

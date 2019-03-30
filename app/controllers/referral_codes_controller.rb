@@ -1,8 +1,5 @@
 class ReferralCodesController < ApplicationController
 
-  def index
-  end
-
   def create
     referral_codes = []
     referral_code_params[:quantity].times do
@@ -10,16 +7,6 @@ class ReferralCodesController < ApplicationController
     end
 
     current_user.referral_codes.create(referral_codes)
-  end
-
-  def redeem
-    code = find_invite_code
-    if code.present?
-      code.use
-      redirect_to login
-    else
-      redirect_back 'Invalid code.'
-    end
   end
 
   private
