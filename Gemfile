@@ -63,4 +63,4 @@ end
 gem 'webpacker'
 gem 'react-rails'
 
-gem 'devise'
+gem "devise", ">= 4.6.0"
