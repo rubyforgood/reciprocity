@@ -3,7 +3,7 @@ jobs:
   build:
     parallelism: 3
     docker:
-      - image: circleci/ruby:2.6.2
+      - image: circleci/ruby:2.6.2-node
         environment:
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
@@ -57,14 +57,12 @@ jobs:
 
       - run:
           name: Database setup
-          command: bin/rails db:schema:load --trace
+          command: bin/rails db:create; bin/rails db:schema:load --trace
 
       - run:
           name: Run rspec in parallel
           command: |
             bundle exec rspec --profile 10 \
-                              --format RspecJunitFormatter \
-                              --out test_results/rspec.xml \
                               --format progress \
                               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
