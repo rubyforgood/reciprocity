@@ -48,6 +48,8 @@ GEM
       io-like (~> 0.3.0)
     arel (9.0.0)
     ast (2.4.0)
+    autoprefixer-rails (9.5.0)
+      execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -56,6 +58,10 @@ GEM
     bindex (0.6.0)
     bootsnap (1.4.2)
       msgpack (~> 1.0)
+    bootstrap (4.3.1)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 1.14.3, < 2)
+      sassc-rails (>= 2.0.0)
     builder (3.2.3)
     bundler-audit (0.6.1)
       bundler (>= 1.2.0, < 3)
@@ -131,6 +137,7 @@ GEM
     parser (2.6.2.0)
       ast (~> 2.4.0)
     pg (1.1.4)
+    popper_js (1.14.5)
     psych (3.1.0)
     public_suffix (3.0.3)
     puma (3.12.1)
@@ -265,9 +272,11 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-darwin-18
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
+  bootstrap (~> 4.3.1)
   bundler-audit
   byebug
   capybara (>= 2.15)
