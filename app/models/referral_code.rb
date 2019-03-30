@@ -1,7 +1,7 @@
 class ReferralCode < ApplicationRecord
   belongs_to :participant
 
-  def use
+  def mark_used
     update(used: true) if !used
   end
 

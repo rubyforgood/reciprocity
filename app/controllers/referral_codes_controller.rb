@@ -11,15 +11,6 @@ class ReferralCodesController < ApplicationController
 
   private
 
-    # look up code by nonce or code name 
-    def find_invite_code
-      if referral_code_params[:nonce]
-        ReferralCode.find(nonce: referral_code_params[:nonce])
-      elsif referral_code_params[:code]
-        ReferralCode.find_by(code: referral_code_params[:code], type: 'invite')
-      end
-    end
-
     def new_invite_code
       {
         code: referral_code_params[:code], 

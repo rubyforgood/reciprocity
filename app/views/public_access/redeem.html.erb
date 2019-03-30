@@ -1,2 +1,9 @@
-
-Referral code input goes here
+<% if flash[:alert] %>
+  <div class="alert"><%= flash[:alert] %></div>
+<% end %>
+<%= form_tag redeem_path do %>
+  <div class="input-group">
+    <input type="text" name="code" class="form-control" placeholder="Enter Access Code">
+  </div>
+  <%= submit_tag "Submit" %>
+<% end %>
