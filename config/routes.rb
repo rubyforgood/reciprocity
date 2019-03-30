@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   get '/', to: 'home#index'
+  resources :participants, only: [:new, :create, :show]
 
   namespace :api do
     namespace :v1 do
