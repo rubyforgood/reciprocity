@@ -47,8 +47,9 @@ class ParticipantsController < ApplicationController
 
   def participant_props(participant)
     {
-      name: participant.display_name,
       about: participant.about_me,
+      id: participant.id,
+      name: participant.display_name,
       zip: participant.zip_code
     }
   end
