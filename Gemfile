@@ -24,6 +24,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'bundler-audit'
   gem 'rubocop'
+  gem 'brakeman', require: false
 end
 
 group :development do

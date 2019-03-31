@@ -65,6 +65,10 @@ jobs:
           command: bundle exec rubocop
 
       - run:
+          name: Brakeman
+          command: ./scripts/brakeman
+
+      - run:
           name: Run rspec in parallel
           command: |
             bundle exec rspec --profile 10 \
