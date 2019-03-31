@@ -9,7 +9,7 @@ class ParticipantsController < ApplicationController
   end
 
   def create
-    participant = Participant.create(participant_params)
+    participant = Participant.create(participant_params.merge(user_id: current_user.id))
     redirect_to participant
   end
 
