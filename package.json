@@ -2,14 +2,14 @@
   "name": "reciprocity-love",
   "private": true,
   "dependencies": {
-    "@babel/preset-react": "^7.0.0",
     "@babel/core": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "@rails/webpacker": "3.5",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "core-js": "3",
     "prop-types": "^15.7.2",
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react_ujs": "^2.4.4",
     "webpacker-react": "^0.3.2"
   },
