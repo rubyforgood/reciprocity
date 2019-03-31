@@ -14,7 +14,7 @@ class ListingsController < ApplicationController
   def edit; end
 
   def create
-    @listing = Listing.new(listing_params)
+    @listing = Listing.new(listing_params.merge(created_by_id: current_user.id))
 
     respond_to do |format|
       if @listing.save

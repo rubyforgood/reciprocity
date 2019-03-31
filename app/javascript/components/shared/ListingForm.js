@@ -1,36 +1,21 @@
 import React from "react";
 import Form from "./Form";
 import Input from "./FormInput";
+import FormTextArea from "./FormTextArea";
 
 const ListingForm = props => {
   return (
     <Form {...props.form}>
       <div className="row">
-        <input
-          type="text"
-          name="listing[created_by_id]"
-          id="listing_created_by_id"
-          value={props.form.creator_id}
-          hidden
-        />
         <div className="col">
-          <label htmlFor="title">Listing Title</label>
           <Input
+            label="Listing Title"
             name="listing[title]"
-            className="form-control"
-            id="title"
-            aria-describedby="nameHelp"
             placeholder="Enter title"
           />
         </div>
         <div className="col">
-          <label htmlFor="zip_code">Listing zip code</label>
-          <Input
-            name="listing[zip_code]"
-            className="form-control"
-            aria-describedby="zipCodeHelp"
-            id="zip_code"
-          />
+          <Input label="Listing zip code" name="listing[zip_code]" />
         </div>
       </div>
       <div className="row">
@@ -44,12 +29,10 @@ const ListingForm = props => {
         </div>
         <div className="col">
           <div className="form-group">
-            <label htmlFor="reference_url">listing Website?</label>
             <Input
+              label="listing Website?"
               type="url"
               name="listing[reference_url]"
-              id="reference_url"
-              className="form-control"
               placeholder="https://example.com"
               required
             />
@@ -57,32 +40,28 @@ const ListingForm = props => {
         </div>
       </div>
       <div className="form-group">
-        <label htmlFor="description">A description of this listing</label>
-        <textarea
+        <FormTextArea
+          label="A description of this listing"
           name="listing[description]"
-          className="form-control"
           id="description"
-          aria-describedby="aboutMeHelp"
           rows="3"
         />
       </div>
       {["publish", "interaction"].map(action_type => (
         <div className="row" key={action_type}>
-          <div className="col">
-            <label htmlFor="start">{action_type} start date:</label>
-            <input
+          <div className="col-6">
+            <Input
+              label={`${action_type} start date:`}
               type="date"
               id="start"
-              className="form-control"
               name={`listing[${action_type}_start_date]`}
             />
           </div>
-          <div className="col">
-            <label htmlFor="start">{action_type} end date:</label>
-            <input
+          <div className="col-6">
+            <Input
+              label={`${action_type} end date:`}
               type="date"
               id="start"
-              className="form-control"
               name={`listing[${action_type}_end_date]`}
             />
           </div>
