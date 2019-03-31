@@ -1,7 +1,7 @@
 import React from 'react'
 import BootstrapContainer from 'BootstrapContainer'
 
-const NewParticipant = () => {
+const ParticipantForm = () => {
   return(
     <BootstrapContainer>
       <div className="row">
@@ -30,5 +30,5 @@ const NewParticipant = () => {
   )
 }
 
-export default NewParticipant
+export default ParticipantForm
 

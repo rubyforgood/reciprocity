@@ -1,6 +1,6 @@
 class ParticipantsController < ApplicationController
   def new
-    render react_component: 'participants/New', props: { participantName: 'Suzy Volunteer' }
+    render react_component: 'participants/Form'
   end
 
   def create
