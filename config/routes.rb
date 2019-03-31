@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :positions
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
