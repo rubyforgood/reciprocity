@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   end
 
   get '/', to: 'home#index'
-
-  resources :participants, except: [:destroy]
+  resources :participants, only: [:create, :update]
+  get '/profile', to: 'participants#show'
+  get '/profile/edit', to: 'participants#edit'
 
   resources :listings
   # offering/wish/call_to_action are for url_helpers with STI

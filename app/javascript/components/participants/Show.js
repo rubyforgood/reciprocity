@@ -3,7 +3,6 @@ import BootstrapContainer from 'BootstrapContainer'
 
 const ShowParticipant = ({
   about,
-  id,
   name,
   zip,
 }) => {
@@ -13,7 +12,7 @@ const ShowParticipant = ({
       <p>You live in {zip}</p>
       <p>Here's a bit about you!</p>
       <p>{about}</p>
-      <a href={`/participants/${id}/edit`}>Edit profile</a>
+      <a href="profile/edit">Edit profile</a>
     </BootstrapContainer>
   )
 }

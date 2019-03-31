@@ -10,21 +10,21 @@ class ParticipantsController < ApplicationController
   end
 
   def create
-    participant = Participant.create(participant_params.merge(user_id: current_user.id))
-    redirect_to participant
+    Participant.create(participant_params.merge(user_id: current_user.id))
+    redirect_to profile_path
   end
 
   def show
-    participant = Participant.find(participant_params['id'])
-    render react_component: 'participants/Show', props: participant_props(participant)
+    participant = Participant.find_by(user_id: user_id)
+    return render react_component: 'participants/Show', props: participant_props(participant) if participant
+    redirect_to new
   end
 
   def edit
-    id = participant_params['id']
-    participant = Participant.find(id)
+    participant = Participant.find_by(user_id: user_id)
     render react_component: 'participants/Form', props: participant_props(participant).merge(
       form: {
-        action: "/participants/#{id}",
+        action: "/participants/#{user_id}",
         method: 'patch',
         token: session[:_csrf_token]
       }
@@ -32,11 +32,11 @@ class ParticipantsController < ApplicationController
   end
 
   def update
-    participant = Participant.find(participant_params['id'])
+    participant = Participant.find_by(user_id: user_id)
     puts participant_params
     participant.update(participant_params)
     participant.save!
-    redirect_to participant
+    redirect_to profile_path
   end
 
   private
@@ -48,9 +48,12 @@ class ParticipantsController < ApplicationController
   def participant_props(participant)
     {
       about: participant.about_me,
-      id: participant.id,
       name: participant.display_name,
       zip: participant.zip_code
     }
+  end
+
+  def user_id
+    current_user.id
   end
 end
