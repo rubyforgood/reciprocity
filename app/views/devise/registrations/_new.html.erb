@@ -23,8 +23,8 @@
 
   <div class="form-group">
     <%= label_tag 'Referrer Code' %><br />
-  <% if @nonce %>
-      <%= text_field_tag 'nonce', @nonce, disabled: true %>
+  <% if @code %>
+      <%= text_field_tag 'nonce', @code.nonce, class:'form-control form-control-lg', disabled: true %>
   <% else %>
       <%= text_field_tag 'code', '', class:'form-control form-control-lg' %>
   <% end %>

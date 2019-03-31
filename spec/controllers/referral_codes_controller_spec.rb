@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ReferralCodesController, type: :controller do
+RSpec.describe Api::V1::ReferralCodesController, type: :controller do
   before do
     sign_in user
   end
