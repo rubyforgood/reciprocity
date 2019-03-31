@@ -5,7 +5,6 @@ FactoryBot.define do
     twitter_username { 'MyString' }
     facebook_username { 'MyString' }
     instagram_username { 'MyString' }
-    logo_upload { '' }
     phone { 'MyString' }
     street_address { 'MyString' }
     city { 'MyString' }

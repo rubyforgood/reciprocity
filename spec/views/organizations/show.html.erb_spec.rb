@@ -8,7 +8,6 @@ RSpec.describe 'organizations/show', type: :view do
                                             twitter_username: 'Twitter Username',
                                             facebook_username: 'Facebook Username',
                                             instagram_username: 'Instagram Username',
-                                            logo_upload: '',
                                             phone: 'Phone',
                                             street_address: 'Street Address',
                                             city: 'City',

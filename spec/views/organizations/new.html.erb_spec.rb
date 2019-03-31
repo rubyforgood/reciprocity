@@ -8,7 +8,6 @@ RSpec.describe 'organizations/new', type: :view do
                             twitter_username: 'MyString',
                             facebook_username: 'MyString',
                             instagram_username: 'MyString',
-                            logo_upload: '',
                             phone: 'MyString',
                             street_address: 'MyString',
                             city: 'MyString',
@@ -31,8 +30,6 @@ RSpec.describe 'organizations/new', type: :view do
       assert_select 'input[name=?]', 'organization[facebook_username]'
 
       assert_select 'input[name=?]', 'organization[instagram_username]'
-
-      assert_select 'input[name=?]', 'organization[logo_upload]'
 
       assert_select 'input[name=?]', 'organization[phone]'
 
