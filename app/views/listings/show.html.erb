@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= @listing.created_by_id %>
+  <%= @listing.creator.display_name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @listing.type %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @listing.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @listing.description %>
+</p>
+
+<p>
+  <strong>Reference url:</strong>
+  <%= @listing.reference_url %>
+</p>
+
+<p>
+  <strong>Publish start date:</strong>
+  <%= @listing.publish_start_date %>
+</p>
+
+<p>
+  <strong>Publish end date:</strong>
+  <%= @listing.publish_end_date %>
+</p>
+
+<p>
+  <strong>Interaction start date:</strong>
+  <%= @listing.interaction_start_date %>
+</p>
+
+<p>
+  <strong>Interaction end date:</strong>
+  <%= @listing.interaction_end_date %>
+</p>
+
+<p>
+  <strong>Zip code:</strong>
+  <%= @listing.zip_code %>
+</p>
+
+<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<%= link_to 'Back', listings_path %>

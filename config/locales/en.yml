@@ -31,3 +31,11 @@
 
 en:
   hello: "Hello world"
+  listing:
+    controller:
+      create:
+        success: 'Listing was successfully created.'
+      update:
+        success: 'Listing was successfully updated.'
+      destroy:
+        success: 'Listing was successfully destroyed.'

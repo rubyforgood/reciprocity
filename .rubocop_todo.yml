@@ -62,7 +62,7 @@ Metrics/AbcSize:
 # ExcludedMethods: refine
 Metrics/BlockLength:
   Max: 26
-  Exclude: 
+  Exclude:
     - 'spec/**/*'
 
 # Offense count: 1
