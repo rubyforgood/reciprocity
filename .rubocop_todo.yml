@@ -64,6 +64,7 @@ Metrics/BlockLength:
   Max: 26
   Exclude:
     - 'spec/**/*'
+    - 'config/environments/production.rb'
 
 # Offense count: 1
 # Configuration parameters: CountComments, ExcludedMethods.
