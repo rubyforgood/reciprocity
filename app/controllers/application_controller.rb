@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(_resource)
     participant = Participant.find_by(user_id: current_user.id)
-    return participant_path if participant
+    return home_path if participant
 
     welcome_path
   end
