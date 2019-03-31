@@ -3,7 +3,8 @@ class ParticipantsController < ApplicationController
     render react_component: 'participants/Form', props: {
       form: {
         action: '/participants',
-        method: 'post'
+        method: 'post',
+        token: session[:_csrf_token]
       }
     }
   end
@@ -24,7 +25,8 @@ class ParticipantsController < ApplicationController
     render react_component: 'participants/Form', props: participant_props(participant).merge(
       form: {
         action: "/participants/#{id}",
-        method: 'patch'
+        method: 'patch',
+        token: session[:_csrf_token]
       }
     )
   end
