@@ -10,7 +10,7 @@ class HomeController < ApplicationController
       about: participant.about_me,
       zip: participant.zip_code,
       form: {
-        action: "/listings",
+        action: '/listings',
         method: 'post',
         token: session[:_csrf_token],
         creator_id: current_user.id
