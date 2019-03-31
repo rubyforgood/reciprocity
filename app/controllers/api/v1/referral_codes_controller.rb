@@ -36,7 +36,10 @@ module Api
       end
 
       def send_invitation
+        # create referral code
         current_user.participant.referral_codes.create(new_invite_code)
+        code = current_user.participant.referral_codes.where(used: false).last
+        InvitationMailer.send_referral_code(referral_code_params[:email], code)
       end
 
       def new_invite_code
