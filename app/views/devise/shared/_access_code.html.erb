@@ -1,0 +1,13 @@
+<h2>Have a Sign Up Code?</h2>
+
+<% if flash[:alert] %>
+  <div class="alert alert-danger" role="alert">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+<%= form_tag redeem_path do %>
+  <div class="form-group">
+    <input type="text" name="code" class="form-control form-control-lg" placeholder="Enter Access Code">
+  </div>
+  <%= submit_tag "Sign Up", class: "btn btn-primary" %>
+<% end %>

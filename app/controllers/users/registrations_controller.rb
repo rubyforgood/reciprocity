@@ -1,7 +1,7 @@
 module Users
   class RegistrationsController < Devise::RegistrationsController
     # before_action :configure_sign_up_params, only: [:create]
-    before_action :validate_sign_up_code, only: [:new]
+    before_action :validate_sign_up_code, only: [:create]
     # before_action :configure_account_update_params, only: [:update]
 
     # GET /resource/sign_up
@@ -12,8 +12,7 @@ module Users
     # POST /resource
     def create
       super
-      code = find_access_code
-      code.mark_used if code.present?
+      @code.mark_used if @code.present?
     end
 
     # GET /resource/edit
@@ -43,20 +42,12 @@ module Users
     protected
 
     def validate_sign_up_code
-      code = find_access_code
-      access_code = code.present? ? code : false
-      return if access_code
+      @code = ReferralCode.find_access_code(params)
 
-      redirect_back(fallback_location: redeem_path)
+      return if @code.present?
+
+      redirect_back(fallback_location: new_user_session_path)
       flash[:alert] = 'Invalid access code.'
-    end
-
-    def find_access_code
-      if params[:nonce]
-        ReferralCode.find_by(nonce: params[:nonce])
-      elsif params[:code]
-        ReferralCode.find_by(code: params[:code])
-      end
     end
 
     # If you have extra params to permit, append them to the sanitizer.

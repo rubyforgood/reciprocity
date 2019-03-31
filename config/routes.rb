@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :referral_codes
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -9,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   get '/', to: 'home#index'
+
   resources :participants, except: [:destroy]
 
   resources :listings
@@ -17,11 +17,9 @@ Rails.application.routes.draw do
   resources :wish, controller: 'listings', path: '/listings'
   resources :call_to_action, controller: 'listings', path: '/listings'
 
-  get '/redeem', to: 'public_access#redeem'
-  post '/redeem', to: 'public_access#redeem'
-
   namespace :api do
     namespace :v1 do
+      resources :referral_codes
       resources :participants, only: [:index, :create, :destroy, :update]
     end
   end
