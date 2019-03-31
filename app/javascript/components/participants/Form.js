@@ -14,7 +14,7 @@ const ParticipantForm = ({
     <BootstrapContainer>
       <div className="row">
         <div className="col-6">
-          <Form props={form}>
+          <Form {...form}>
             <Input
               defaultValue={name}
               helpText="This is your display name in the application"
