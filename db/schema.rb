@@ -15,6 +15,23 @@ ActiveRecord::Schema.define(version: 2019_03_30_220400) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "listings", force: :cascade do |t|
+    t.bigint "created_by_id"
+    t.string "type", null: false
+    t.string "title"
+    t.text "description"
+    t.text "reference_url"
+    t.datetime "publish_start_date"
+    t.datetime "publish_end_date"
+    t.datetime "interaction_start_date"
+    t.datetime "interaction_end_date"
+    t.string "zip_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["created_by_id"], name: "index_listings_on_created_by_id"
+    t.index ["type"], name: "index_listings_on_type"
+  end
+
   create_table "participants", force: :cascade do |t|
     t.string "display_name"
     t.text "about_me"
@@ -64,4 +81,5 @@ ActiveRecord::Schema.define(version: 2019_03_30_220400) do
 
   add_foreign_key "participants", "users"
   add_foreign_key "referral_codes", "participants"
+  add_foreign_key "listings", "participants", column: "created_by_id"
 end

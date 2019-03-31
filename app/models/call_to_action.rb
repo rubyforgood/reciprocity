@@ -1,0 +1,2 @@
+class CallToAction < Listing
+end
