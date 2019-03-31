@@ -50,6 +50,7 @@ jobs:
           key: rails-demo-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
+            - node_modules
 
       - run:
           name: Wait for DB
@@ -62,6 +63,10 @@ jobs:
       - run:
           name: Rubocop for linting goodness
           command: bundle exec rubocop
+
+      - run:
+          name: Brakeman
+          command: ./scripts/brakeman
 
       - run:
           name: Run rspec in parallel

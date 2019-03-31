@@ -1,0 +1,4 @@
+#!/bin/bash
+
+gem install brakeman
+brakeman --ignore-config ./config/brakeman.ignore --exit-on-warn .

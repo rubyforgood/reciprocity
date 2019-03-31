@@ -6,6 +6,10 @@ RSpec.describe ListingsController, type: :controller do
     sign_in @user
   end
 
+  let(:user) do
+    User.create!(email: 'person@example.com', password: 'xyz123456', confirmed_at: Time.now)
+  end
+
   let(:participant) do
     Participant.create!(user: @user)
   end

@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   end
 
   get '/', to: 'home#index'
-  resources :participants, only: [:new, :create, :show]
+
+  resources :participants, except: [:destroy]
 
   resources :listings
   # offering/wish/call_to_action are for url_helpers with STI
