@@ -2,6 +2,7 @@ import React from 'react'
 import BootstrapContainer from 'BootstrapContainer'
 import Form from '../shared/Form'
 import Input from '../shared/FormInput'
+import TextArea from '../shared/FormTextArea'
 
 const ParticipantForm = ({
   about,
@@ -27,18 +28,12 @@ const ParticipantForm = ({
               label="Your zip code"
               name="zip_code"
             />
-            <div className="form-group">
-              <label htmlFor="about_me">About me</label>
-              <textarea
-                name="about_me"
-                className="form-control"
-                id="about_me"
-                aria-describedby="aboutMeHelp"
-                rows="3"
-                defaultValue={about}
-              />
-              <small id="aboutMeHelp" className="form-text text-muted">Tell us a bit about yourself</small>
-            </div>
+            <TextArea
+              label="About me"
+              name="about_me"
+              defaultValue={about}
+              helpText="Tell us a bit about yourself"
+            />
             <button type="submit" className="btn btn-primary">Submit</button>
           </Form>
         </div>
