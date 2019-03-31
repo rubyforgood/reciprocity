@@ -1,31 +1,52 @@
 module Api
   module V1
     class ReferralCodesController < ApplicationController
-      def index; end
+      def index
+        render json: current_user.participant.referral_codes
+      end
 
       def create
-        referral_codes = []
-        referral_code_params[:quantity].times do
-          referral_codes += new_invite_code
+        if referral_code_params[:code]
+          create_custom_codes
+        elsif referral_code_params[:email]
+          send_invitation
         end
 
-        current_user.referral_codes.create(referral_codes)
-        # render json: current_user.referral_codes
+        render json: current_user.participant.referral_codes
       end
 
       def destroy
         code = ReferralCode.find_access_code(referral_code_params)
         code.destroy if code.present?
-        render json: current_user.referral_codes
+        render json: current_user.participant.referral_codes
       end
 
       private
+
+      def create_custom_codes
+        referral_codes = []
+        qty = referral_code_params[:quantity] || 1
+        if qty&.is_an_int
+          qty.times do
+            referral_codes += new_invite_code
+          end
+        end
+
+        current_user.participant.referral_codes.create(referral_codes)
+      end
+
+      def send_invitation
+        # create referral code
+        current_user.participant.referral_codes.create(new_invite_code)
+        code = current_user.participant.referral_codes.where(used: false).last
+        InvitationMailer.send_referral_code(referral_code_params[:email], code)
+      end
 
       def new_invite_code
         {
           code: referral_code_params[:code],
           nonce: ReferralCode.nonce,
-          type: 'invite'
+          code_type: 'invite'
         }
       end
 
