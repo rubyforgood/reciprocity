@@ -21,6 +21,21 @@
     <%= f.password_field :password_confirmation, autocomplete: "off",  class:'form-control form-control-lg' %>
   </div>
 
+  <div class="form-group">
+    <%= label_tag 'Referrer Code' %><br />
+  <% if @nonce %>
+      <%= text_field_tag 'nonce', @nonce, disabled: true %>
+  <% else %>
+      <%= text_field_tag 'code', '', class:'form-control form-control-lg' %>
+  <% end %>
+  </div>
+
+  <% if flash[:alert] %>
+    <div class="alert alert-danger" role="alert">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit "Sign up", class: "btn btn-primary" %>
   </div>
