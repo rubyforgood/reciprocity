@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2019_03_30_220400) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "listings", "participants", column: "created_by_id"
   add_foreign_key "participants", "users"
   add_foreign_key "referral_codes", "participants"
-  add_foreign_key "listings", "participants", column: "created_by_id"
 end
