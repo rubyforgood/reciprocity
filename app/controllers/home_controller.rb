@@ -4,11 +4,17 @@ class HomeController < ApplicationController
   end
 
   def show
-    participant = Participant.first
+    participant = current_user.participants.first
     render react_component: 'home/Show', props: {
       name: participant.display_name,
       about: participant.about_me,
-      zip: participant.zip_code
+      zip: participant.zip_code,
+      form: {
+        action: "/listings",
+        method: 'post',
+        token: session[:_csrf_token],
+        creator_id: current_user.id
+      }
     }
   end
 end
