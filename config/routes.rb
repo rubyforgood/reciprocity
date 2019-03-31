@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get 'register', to: 'users/registrations#new'
   end
 
-  get '/', to: 'home#index'
+  get '/', to: 'home#show'
   resources :participants, only: [:create, :update]
   get '/profile', to: 'participants#show'
   get '/profile/:id', to: 'participants#show'
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/welcome', to: 'users#welcome'
 
   resources :listings
+  resources :home, only: [:show]
   # offering/wish/call_to_action are for url_helpers with STI
   resources :offerings, controller: 'listings', path: '/listings'
   resources :wish, controller: 'listings', path: '/listings'
