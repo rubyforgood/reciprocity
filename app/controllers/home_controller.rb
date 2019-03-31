@@ -9,6 +9,7 @@ class HomeController < ApplicationController
       name: participant.display_name,
       about: participant.about_me,
       zip: participant.zip_code,
+      listings: participant.listings.group_by(&:type),
       form: {
         action: '/listings',
         method: 'post',
