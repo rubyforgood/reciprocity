@@ -45,7 +45,7 @@ class ParticipantsController < ApplicationController
   private
 
   def participant_params
-    params.permit(:id, :display_name, :about_me, :zip_code, :interest_list)
+    params.permit(:id, :display_name, :about_me, :zip_code, :interest_list, :avatar)
   end
 
   def participant_props(participant)
