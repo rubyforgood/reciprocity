@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :positions
   resources :organizations
+  resources :interactions
+  resources :referral_codes
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',

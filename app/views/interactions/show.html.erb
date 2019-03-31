@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reciprocator:</strong>
+  <%= @interaction.reciprocator.id %>
+</p>
+
+<p>
+  <strong>Listing:</strong>
+  <%= @interaction.listing.id %>
+</p>
+
+<%= link_to 'Edit', edit_interaction_path(@interaction) %> |
+<%= link_to 'Back', interactions_path %>
