@@ -7,7 +7,7 @@ RSpec.describe ListingsController, type: :controller do
   end
 
   let(:user) do
-    User.create!(email: 'person@example.com', password: 'xyz123456', confirmed_at: Time.now)
+    User.create!(email: 'persons@example.com', password: 'xyz123456', confirmed_at: Time.now)
   end
 
   let(:participant) do
@@ -65,7 +65,7 @@ RSpec.describe ListingsController, type: :controller do
 
       it 'redirects to the created listing' do
         post :create, params: { listing: valid_attributes }, session: valid_session
-        expect(response).to redirect_to(Listing.last)
+        expect(response).to redirect_to(home_path(@user))
       end
     end
   end

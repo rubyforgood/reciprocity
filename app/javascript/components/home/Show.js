@@ -1,19 +1,20 @@
 import React from "react";
 import ListingForm from "../shared/ListingForm";
+import { ParticipantData } from "../participants/Show";
+import ListingsGrid from "../shared/ListingsGrid";
 
-const ShowDashboard = ({ about, name, zip, form }) => {
+const ShowDashboard = ({ form, listings, ...props }) => {
   return (
     <div className="row">
       <div className="col col-md-4">
-        <h1>hey, {name}!</h1>
-        <p>You live in {zip}</p>
-        <p>Here's a bit about you!</p>
-        <p>{about}</p>
+        <ParticipantData {...props} />
       </div>
       <div className="col col-md-4">
         <ListingForm form={form} />
       </div>
-      <div className="col col-md-4">One of three columns</div>
+      <div className="col col-md-4">
+        <ListingsGrid listings={listings} />
+      </div>
     </div>
   );
 };
