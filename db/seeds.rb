@@ -8,6 +8,11 @@ end
   Participant.create!(
     display_name: "participant-#{n}",
     about_me: "long bio about participant-#{n}",
-    zip_code: '94596'
+    zip_code: '94596',
+    user: User.new(
+      email: "participant-#{n}@love.com",
+      password: 'topsecret',
+      password_confirmation: 'topsecret'
+    )
   )
 end
