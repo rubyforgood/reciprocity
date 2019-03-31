@@ -1,14 +1,12 @@
 import React from "react";
 import ListingForm from "../shared/ListingForm";
+import { ParticipantInfo } from '../participants/Show'
 
 const ShowDashboard = ({ about, name, zip, form }) => {
   return (
     <div className="row">
       <div className="col col-md-4">
-        <h1>hey, {name}!</h1>
-        <p>You live in {zip}</p>
-        <p>Here's a bit about you!</p>
-        <p>{about}</p>
+        <ParticipantInfo name={name} zip={zip} about={about} />
       </div>
       <div className="col col-md-4">
         <ListingForm form={form} />
