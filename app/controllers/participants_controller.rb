@@ -15,7 +15,11 @@ class ParticipantsController < ApplicationController
   end
 
   def show
-    participant = Participant.find_by(user_id: user_id)
+    participant = if participant_params[:id]
+                    Participant.find(participant_params[:id])
+                  else
+                    Participant.find_by(user_id: user_id)
+                  end
     render(react_component: 'participants/Show', props: participant_props(participant))
   end
 
