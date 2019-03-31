@@ -1,6 +1,7 @@
 import React from 'react'
 import BootstrapContainer from 'BootstrapContainer'
 import Form from '../shared/Form'
+import Input from '../shared/FormInput'
 
 const ParticipantForm = ({
   about,
@@ -13,29 +14,19 @@ const ParticipantForm = ({
       <div className="row">
         <div className="col-6">
           <Form props={form}>
-            <div className="form-group">
-              <label htmlFor="display_name">Your name</label>
-              <input
-                name="display_name"
-                className="form-control"
-                id="display_name"
-                aria-describedby="nameHelp"
-                placeholder="Enter name"
-                defaultValue={name}
-              />
-              <small id="nameHelp" className="form-text text-muted">This is your display name in the application</small>
-            </div>
-            <div className="form-group">
-              <label htmlFor="zip_code">Your zip code</label>
-              <input
-                name="zip_code"
-                className="form-control"
-                aria-describedby="zipCodeHelp"
-                id="zip_code"
-                defaultValue={zip}
-              />
-              <small id="zipCodeHelp" className="form-text text-muted">What is your home zipcode?</small>
-            </div>
+            <Input
+              defaultValue={name}
+              helpText="This is your display name in the application"
+              label="Your name"
+              name="display_name"
+              placeholder="Enter name"
+            />
+            <Input
+              defaultValue={zip}
+              helpText="What is your home zipcode?"
+              label="Your zip code"
+              name="zip_code"
+            />
             <div className="form-group">
               <label htmlFor="about_me">About me</label>
               <textarea
