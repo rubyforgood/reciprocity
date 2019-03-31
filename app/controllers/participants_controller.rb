@@ -16,8 +16,7 @@ class ParticipantsController < ApplicationController
 
   def show
     participant = Participant.find_by(user_id: user_id)
-    return render react_component: 'participants/Show', props: participant_props(participant) if participant
-    redirect_to new
+    render(react_component: 'participants/Show', props: participant_props(participant))
   end
 
   def edit
