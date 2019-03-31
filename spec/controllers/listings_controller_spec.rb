@@ -2,12 +2,15 @@ require 'rails_helper'
 
 RSpec.describe ListingsController, type: :controller do
   before do
-    user = User.create!(email: 'person@example.com', password: 'xyz123456', confirmed_at: Time.now)
     sign_in user
   end
 
+  let(:user) do
+    User.create!(email: 'person@example.com', password: 'xyz123456', confirmed_at: Time.now)
+  end
+
   let(:participant) do
-    Participant.create!
+    Participant.create!(user: user)
   end
 
   let(:valid_attributes) do

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get '/', to: 'home#index'
   resources :participants, only: [:new, :create, :show]
-  
+
   resources :listings
   # offering/wish/call_to_action are for url_helpers with STI
   resources :offerings, controller: 'listings', path: '/listings'
