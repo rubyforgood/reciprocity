@@ -50,6 +50,7 @@ jobs:
           key: rails-demo-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
+            - node_modules
 
       - run:
           name: Wait for DB
