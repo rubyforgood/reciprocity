@@ -11,9 +11,7 @@
     "react-dom": "^16.8.5",
     "react_ujs": "^2.4.4",
     "webpack-cli": "^3.3.0",
-    "webpacker-react": "^0.3.2"
-  },
-  "devDependencies": {
+    "webpacker-react": "^0.3.2",
     "webpack-dev-server": "^3.2.1"
   }
 }
