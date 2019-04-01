@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 2019_03_31_224830) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "interactions", force: :cascade do |t|
+    t.bigint "reciprocator_id"
+    t.bigint "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_interactions_on_listing_id"
+    t.index ["reciprocator_id"], name: "index_interactions_on_reciprocator_id"
+  end
+
   create_table "listings", force: :cascade do |t|
     t.bigint "created_by_id"
     t.string "type", null: false
@@ -151,6 +160,8 @@ ActiveRecord::Schema.define(version: 2019_03_31_224830) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "interactions", "listings"
+  add_foreign_key "interactions", "participants", column: "reciprocator_id"
   add_foreign_key "listings", "participants", column: "created_by_id"
   add_foreign_key "participants", "users"
   add_foreign_key "referral_codes", "participants"
