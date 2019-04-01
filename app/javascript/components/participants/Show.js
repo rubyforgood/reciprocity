@@ -1,20 +1,28 @@
-import React from 'react'
-import BootstrapContainer from 'BootstrapContainer'
+import React from "react";
+import BootstrapContainer from "BootstrapContainer";
 
-const ShowParticipant = ({
-  about,
-  name,
-  zip,
-}) => {
-  return(
+
+const ParticipantData = ({ name, zip, about }) => (
+  <div>
+    <img
+      class="img-responsive CattoBorderRadius"
+      src="http://placekitten.com/g/200/200"
+    />
+    <h1>Welcome, {name}!</h1>
+    <p>You live in {zip}</p>
+    <p>Here's a bit about you!</p>
+    <p>{about}</p>
+    <a href="profile/edit">Edit profile</a>
+  </div>
+);
+
+const ShowParticipant = props => {
+  return (
     <BootstrapContainer>
-      <h1>Welcome, {name}!</h1>
-      <p>You live in {zip}</p>
-      <p>Here's a bit about you!</p>
-      <p>{about}</p>
-      <a href="profile/edit">Edit profile</a>
+      <ParticipantData {...props} />
     </BootstrapContainer>
-  )
-}
+  );
+};
 
-export default ShowParticipant
+export default ShowParticipant;
+export { ParticipantData };

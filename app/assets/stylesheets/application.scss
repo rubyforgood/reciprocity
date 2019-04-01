@@ -27,3 +27,28 @@
 .login-container {
   margin-top: 3rem;
 }
+
+.bodyClass {
+  max-width: 80rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+  padding: 0 2rem;
+}
+
+.jumbotron {
+  background-color: #9dc07f;
+}
+
+.listing {
+  &-card {
+    margin-bottom: 1rem;
+  }
+  &-title {
+    margin-bottom: 1rem;
+  }
+
+  &-item {
+    margin-bottom: 1rem;
+    border-bottom: solid 1px;
+  }
+}

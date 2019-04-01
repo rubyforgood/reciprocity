@@ -18,7 +18,7 @@ class ListingsController < ApplicationController
 
     respond_to do |format|
       if @listing.save
-        format.html { redirect_to @listing, notice: t('listing.controller.create.success') }
+        format.html { redirect_to home_index_path(current_user), notice: t('listing.controller.create.success') }
       else
         format.html { render :new }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
