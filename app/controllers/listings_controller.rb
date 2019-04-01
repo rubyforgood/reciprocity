@@ -62,7 +62,7 @@ class ListingsController < ApplicationController
                                     :interaction_start_date,
                                     :interaction_end_date,
                                     :zip_code,
-                                    photos: []
-    )
+                                    :tag_list,
+                                    photos: [])
   end
 end

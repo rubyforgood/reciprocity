@@ -17,6 +17,11 @@ class HomeController < ApplicationController
         method: 'post',
         token: session[:_csrf_token]
       },
+      createCodesForm: {
+        action: '/api/v1/referral_codes',
+        method: 'post',
+        token: session[:_csrf_token]
+      },
       invitationCodes: current_user.participant.referral_codes
 
     }
