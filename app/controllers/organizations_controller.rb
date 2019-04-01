@@ -73,6 +73,7 @@ class OrganizationsController < ApplicationController
                                          :twitter_username,
                                          :facebook_username,
                                          :instagram_username,
+                                         :logo_upload,
                                          :phone,
                                          :street_address,
                                          :city,

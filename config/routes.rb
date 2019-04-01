@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :organizations
   resources :positions
   resources :referral_codes
-  
+
   # offering/wish/call_to_action are for url_helpers with STI
   resources :offerings, controller: 'listings', path: '/listings'
   resources :wish, controller: 'listings', path: '/listings'
