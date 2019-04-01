@@ -1,11 +1,8 @@
-import React from 'react'
-import BootstrapContainer from 'BootstrapContainer'
+import React from "react";
+import BootstrapContainer from "BootstrapContainer";
 
-export const ParticipantInfo = ({
-  about,
-  name,
-  zip
-}) => (
+
+const ParticipantData = ({ name, zip, about }) => (
   <div>
     <h1>Welcome, {name}!</h1>
     <p>You live in {zip}</p>
@@ -13,14 +10,15 @@ export const ParticipantInfo = ({
     <p>{about}</p>
     <a href="profile/edit">Edit profile</a>
   </div>
-)
+);
 
-const ShowParticipant = (props) => {
-  return(
+const ShowParticipant = props => {
+  return (
     <BootstrapContainer>
-      <ParticipantInfo {...props} />
+      <ParticipantData {...props} />
     </BootstrapContainer>
-  )
-}
+  );
+};
 
-export default ShowParticipant
+export default ShowParticipant;
+export { ParticipantData };
