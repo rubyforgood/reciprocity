@@ -61,6 +61,7 @@ class ListingsController < ApplicationController
                                     :publish_end_date,
                                     :interaction_start_date,
                                     :interaction_end_date,
-                                    :zip_code)
+                                    :zip_code,
+                                    :tag_list)
   end
 end
