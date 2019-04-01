@@ -3,16 +3,25 @@ import Form from "./Form";
 import Input from "./FormInput";
 import FormTextArea from "./FormTextArea";
 import { DateRangePicker } from "react-dates";
+import Datetime from "react-datetime";
+import moment from "moment";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
+
+const now = moment();
 
 const ListingForm = props => {
   const [publishStartDate, setPublishStartDate] = useState();
   const [publishEndDate, setPublishEndDate] = useState();
-  const [interactionStartDate, setInteractionStartDate] = useState();
-  const [interactionEndDate, setInteractionEndDate] = useState();
+  const [interactionStartDate, setInteractionStartDate] = useState(now);
+  const [interactionEndDate, setInteractionEndDate] = useState(now);
   const [publishFocused, setPublishFocused] = useState();
-  const [interactionFocused, setInteractionFocused] = useState();
+  const times = {
+    interactionStartDate,
+    interactionEndDate,
+    publishStartDate,
+    publishEndDate
+  };
 
   return (
     <Form {...props.form}>
@@ -84,44 +93,41 @@ const ListingForm = props => {
       </div>
       <div className="row">
         <div className="col">
-          <label htmlFor="type">Interaction Start and End date</label>
-          <DateRangePicker
-            startDate={interactionStartDate}
-            startDateId="interaction_start_date_id"
-            endDate={interactionEndDate}
-            endDateId="interaction_end_date_id"
-            onDatesChange={({ startDate, endDate }) => {
-              document.querySelector(
-                "#interaction_start"
-              ).value = startDate.format("YYYY-MM-DD");
-              if (endDate) {
-                document.querySelector(
-                  "#interaction_end"
-                ).value = endDate.format("YYYY-MM-DD");
-              }
-              setInteractionEndDate(endDate);
-              setInteractionStartDate(startDate);
-            }}
-            focusedInput={interactionFocused}
-            onFocusChange={setInteractionFocused}
+          <label htmlFor="type">Interaction Start date</label>
+          <Datetime
+            onChange={setInteractionStartDate}
+            value={interactionStartDate}
+          />
+        </div>
+        <div className="col">
+          <label htmlFor="type">Interaction End date</label>
+          <Datetime
+            onChange={setInteractionEndDate}
+            value={interactionEndDate}
           />
         </div>
       </div>
       {["publish", "interaction"].map(action_type => (
-        <React.Fragment>
+        <React.Fragment key={action_type}>
           <input
             label={`${action_type} start date:`}
-            type="date"
             id={`${action_type}_start`}
-            class="hidden"
+            className="hidden"
             name={`listing[${action_type}_start_date]`}
+            defaultValue={
+              times[`${action_type}StartDate`] &&
+              times[`${action_type}StartDate`].format()
+            }
           />
           <input
             label={`${action_type} end date:`}
-            type="date"
             id={`${action_type}_end`}
-            class="hidden"
+            className="hidden"
             name={`listing[${action_type}_end_date]`}
+            defaultValue={
+              times[`${action_type}EndDate`] &&
+              times[`${action_type}EndDate`].format()
+            }
           />
         </React.Fragment>
       ))}
