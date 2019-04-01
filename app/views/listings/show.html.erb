@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <% @listing.photos.each do |photo| %>
+    <%#= image_tag photo.variant(resize_to_limit: [100, 100]) %>
+    <%= image_tag url_for(photo) %>
+    <%= link_to photo.filename, rails_blob_path(photo, disposition: "attachment", style: "max-width:10px") %>
+<% end %>
+</p>
+
+<p>
   <strong>Created by:</strong>
   <%= @listing.created_by_id %>
   <%= @listing.creator.display_name %>
