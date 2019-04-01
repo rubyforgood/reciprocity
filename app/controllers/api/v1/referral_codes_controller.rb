@@ -25,11 +25,15 @@ module Api
       private
 
       def create_custom_codes
+        # do not create if code exists already
+        code = ReferralCode.find_access_code(referral_code_params)
+        return if code
+
         referral_codes = []
         qty = referral_code_params[:quantity] || 1
-        if qty&.is_an_int
-          qty.times do
-            referral_codes += new_invite_code
+        if qty&.to_i
+          qty.to_i.times do
+            referral_codes += [new_invite_code]
           end
         end
 
