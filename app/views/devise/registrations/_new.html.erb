@@ -23,11 +23,11 @@
 
   <div class="form-group">
     <%= label_tag 'Referrer Code' %><br />
-  <% if @code %>
-      <%= text_field_tag 'nonce', @code.nonce, class:'form-control form-control-lg', disabled: true %>
-  <% else %>
-      <%= text_field_tag 'code', '', class:'form-control form-control-lg' %>
-  <% end %>
+    <% if @code %>
+        <%= text_field_tag 'nonce', @code.nonce, class:'form-control form-control-lg', readonly: true %>
+    <% else %>
+        <%= text_field_tag 'code', '', class:'form-control form-control-lg' %>
+    <% end %>
   </div>
 
   <% if flash[:alert] %>
