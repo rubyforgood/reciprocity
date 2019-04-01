@@ -11,7 +11,7 @@ class ParticipantsController < ApplicationController
 
   def create
     Participant.create(participant_params.merge(user_id: current_user.id))
-    redirect_to profile_path
+    redirect_to root_path
   end
 
   def show
