@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   get '/', to: 'home#show'
   resources :participants, only: [:create, :update]
   get '/profile', to: 'participants#show'
-  get '/profile/:id', to: 'participants#show'
   get '/profile/new', to: 'participants#new'
+  get '/profile/:id', to: 'participants#show'
   get '/profile/edit', to: 'participants#edit'
   get '/welcome', to: 'users#welcome'
 
