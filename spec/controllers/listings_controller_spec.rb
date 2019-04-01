@@ -65,7 +65,7 @@ RSpec.describe ListingsController, type: :controller do
 
       it 'redirects to the created listing' do
         post :create, params: { listing: valid_attributes }, session: valid_session
-        expect(response).to redirect_to(home_path(@user))
+        expect(response).to redirect_to(home_index_path(@user))
       end
     end
   end
