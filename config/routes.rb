@@ -9,16 +9,16 @@ Rails.application.routes.draw do
     get 'register', to: 'users/registrations#new'
   end
 
-  get '/', to: 'home#show'
+  get '/', to: 'home#index'
   resources :participants, only: [:create, :update]
   get '/profile', to: 'participants#show'
   get '/profile/new', to: 'participants#new'
-  get '/profile/:id', to: 'participants#show'
   get '/profile/edit', to: 'participants#edit'
+  get '/profile/:id', to: 'participants#show'
   get '/welcome', to: 'users#welcome'
 
   resources :listings
-  resources :home, only: [:show]
+  resources :home, only: [:index]
   # offering/wish/call_to_action are for url_helpers with STI
   resources :offerings, controller: 'listings', path: '/listings'
   resources :wish, controller: 'listings', path: '/listings'

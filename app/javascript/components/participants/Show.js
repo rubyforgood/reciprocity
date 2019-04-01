@@ -1,6 +1,7 @@
 import React from "react";
 import BootstrapContainer from "BootstrapContainer";
 
+
 const ParticipantData = ({ name, zip, about }) => (
   <div>
     <h1>Welcome, {name}!</h1>
