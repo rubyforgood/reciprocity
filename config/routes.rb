@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get 'register', to: 'users/registrations#new'
   end
 
-  get '/', to: 'home#index'
+  get '/', to: 'home#index', as: :root
   resources :participants, only: [:create, :update]
   get '/profile', to: 'participants#show'
   get '/profile/new', to: 'participants#new'
