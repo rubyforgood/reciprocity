@@ -1,24 +1,26 @@
 <%= form_with(model: listing.becomes(Listing), local: true) do |form| %>
+  <%= form.hidden_field :created_by_id, value: current_user.id %>
+
   <% if listing.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
 
       <ul>
-      <% listing.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% listing.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :created_by_id %>
-    <%= form.text_field :created_by_id %>
+    <%= form.label :type %>
+    <%= form.text_field :type %>
   </div>
 
   <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type %>
+    <%= form.label :photos %>
+    <%= form.file_field :photos, multiple: true %>
   </div>
 
   <div class="field">
