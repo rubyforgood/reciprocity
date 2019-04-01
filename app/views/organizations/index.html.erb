@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Organizations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Website url</th>
+      <th>Twitter username</th>
+      <th>Facebook username</th>
+      <th>Instagram username</th>
+      <th>Logo upload</th>
+      <th>Phone</th>
+      <th>Street address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @organizations.each do |organization| %>
+      <tr>
+        <td><%= organization.name %></td>
+        <td><%= organization.website_url %></td>
+        <td><%= organization.twitter_username %></td>
+        <td><%= organization.facebook_username %></td>
+        <td><%= organization.instagram_username %></td>
+        <td><%= organization.phone %></td>
+        <td><%= organization.street_address %></td>
+        <td><%= organization.city %></td>
+        <td><%= organization.state %></td>
+        <td><%= organization.zip %></td>
+        <td><%= organization.description %></td>
+        <td><%= link_to 'Show', organization %></td>
+        <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
+        <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Organization', new_organization_path %>
