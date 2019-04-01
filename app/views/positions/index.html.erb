@@ -3,16 +3,18 @@
 <h1>Meet the Team</h1>
 
 <% @positions.each do |position| %>
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/26907788_1614183255284072_4356465325754439623_n.jpg?_nc_cat=102&_nc_ht=scontent-sjc3-1.xx&oh=6fe4c94c3c6693b0714e54b3a90b0b03&oe=5D4971D1" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Sir GrumpsALot</h5>
-      <p class="card-text"><%= position.bio %></p>
-      <td><%= link_to 'Show', position, class: "btn btn-primary" %></td>
-      <td><%= link_to 'Edit', edit_position_path(position), class: "btn btn-primary" %></td>
-      <td><%= link_to 'Destroy', position, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
+  <% if position.show_on_team_page == true %>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/26907788_1614183255284072_4356465325754439623_n.jpg?_nc_cat=102&_nc_ht=scontent-sjc3-1.xx&oh=6fe4c94c3c6693b0714e54b3a90b0b03&oe=5D4971D1" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Sir GrumpsALot</h5>
+        <p class="card-text"><%= position.bio %></p>
+        <td><%= link_to 'Show', position, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_position_path(position), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', position, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
 
 <br>
