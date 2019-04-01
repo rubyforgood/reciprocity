@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :participants, only: [:create, :update]
   get '/profile', to: 'participants#show'
   get '/profile/new', to: 'participants#new'
+  get '/profile/interests', to: 'participants#interests'
   get '/profile/edit', to: 'participants#edit'
   get '/profile/:id', to: 'participants#show'
   get '/welcome', to: 'users#welcome'

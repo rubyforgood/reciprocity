@@ -1,8 +1,8 @@
 import React from 'react'
 import BootstrapContainer from 'BootstrapContainer'
-import Form from '../shared/Form'
-import Input from '../shared/FormInput'
-import TextArea from '../shared/FormTextArea'
+import Form from '../../shared/Form'
+import Input from '../../shared/FormInput'
+import TextArea from '../../shared/FormTextArea'
 
 const ParticipantForm = ({
   about,
