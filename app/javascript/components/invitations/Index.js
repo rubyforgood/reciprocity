@@ -14,20 +14,25 @@ const Index = ({ invitationCodes }) => {
   return (
     <div className="row">
       <div className="col-6">
-      <h3>Your Access Codes</h3>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col"></th>
-            <th scope="col">Used?</th>
-          </tr>
-        </thead>
-        <tbody>
-          { invitationCodes.map(code => (
-            <InvitationCode { ...code } />
-          ))}
-        </tbody>
-      </table>
+      <h5>Your Invites</h5>
+       { (invitationCodes.length > 0) &&
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Used?</th>
+              </tr>
+            </thead>
+            <tbody>
+              { invitationCodes.map(code => (
+                <InvitationCode { ...code } />
+            ))}
+          </tbody>
+        </table>
+      }
+      { !invitationCodes.length &&
+        <p>You have no invitation codes.</p>
+      }
       </div>
     </div>
 )}
