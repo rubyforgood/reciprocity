@@ -39,13 +39,13 @@ class ParticipantsController < ApplicationController
     puts participant_params
     participant.update(participant_params)
     participant.save!
-    redirect_to profile_path
+    redirect_to '/'
   end
 
   private
 
   def participant_params
-    params.permit(:id, :display_name, :about_me, :zip_code, :interest_list)
+    params.permit(:display_name, :about_me, :zip_code, :interest_list)
   end
 
   def participant_props(participant)
