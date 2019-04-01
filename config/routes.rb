@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   end
 
   get '/', to: 'home#index', as: :root
+  get '/about', to: 'public_access#about', as: :about
+
   resources :participants, only: [:create, :update]
   get '/profile', to: 'participants#show'
   get '/profile/new', to: 'participants#new'
