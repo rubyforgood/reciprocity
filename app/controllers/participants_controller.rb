@@ -15,8 +15,8 @@ class ParticipantsController < ApplicationController
   end
 
   def show
-    participant = if participant_params[:id]
-                    Participant.find(participant_params[:id])
+    participant = if params[:id]
+                    Participant.find(params[:id])
                   else
                     Participant.find_by(user_id: user_id)
                   end
@@ -58,7 +58,7 @@ class ParticipantsController < ApplicationController
   private
 
   def participant_params
-    params.permit(:display_name, :about_me, :zip_code, interest_list: [])
+    params.permit(:display_name, :about_me, :zip_code, :avatar, interest_list: [])
   end
 
   def participant_props(participant)

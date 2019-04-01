@@ -19,6 +19,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 gem 'bootstrap', '~> 4.3.1'
 
+gem "aws-sdk-s3", require: false
+
+gem 'image_processing', '~> 1.2'
+
 group :development, :test do
   gem 'bundler-audit'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

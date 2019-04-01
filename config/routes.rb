@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  resources :positions
-  resources :organizations
-  resources :interactions
-  resources :referral_codes
-
+  
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -24,8 +20,13 @@ Rails.application.routes.draw do
   get '/profile/:id', to: 'participants#show'
   get '/welcome', to: 'users#welcome'
 
-  resources :listings
   resources :home, only: [:index]
+  resources :interactions
+  resources :listings
+  resources :organizations
+  resources :positions
+  resources :referral_codes
+
   # offering/wish/call_to_action are for url_helpers with STI
   resources :offerings, controller: 'listings', path: '/listings'
   resources :wish, controller: 'listings', path: '/listings'
