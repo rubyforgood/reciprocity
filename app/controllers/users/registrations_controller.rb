@@ -2,6 +2,7 @@ module Users
   class RegistrationsController < Devise::RegistrationsController
     # before_action :configure_sign_up_params, only: [:create]
     before_action :validate_sign_up_code, only: [:create]
+
     # before_action :configure_account_update_params, only: [:update]
 
     # GET /resource/sign_up
@@ -43,7 +44,6 @@ module Users
 
     def validate_sign_up_code
       @code = ReferralCode.find_access_code(params)
-
       return if @code.present?
 
       redirect_back(fallback_location: new_user_session_path)

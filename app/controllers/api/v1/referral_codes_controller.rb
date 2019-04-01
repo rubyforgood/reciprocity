@@ -22,7 +22,7 @@ module Api
         render json: current_user.participant.referral_codes
       end
 
-      private
+      protected
 
       def create_custom_codes
         # do not create if code exists already
