@@ -4,6 +4,10 @@ import BootstrapContainer from "BootstrapContainer";
 
 const ParticipantData = ({ name, zip, about }) => (
   <div>
+    <img
+      class="img-responsive CattoBorderRadius"
+      src="http://placekitten.com/g/200/200"
+    />
     <h1>Welcome, {name}!</h1>
     <p>You live in {zip}</p>
     <p>Here's a bit about you!</p>
