@@ -20,6 +20,11 @@ jobs:
       - checkout
 
       - run:
+          name: install dependencies
+          command: |
+            gem install bundler -v 2.0.1
+
+      - run:
           name: Which bundler?
           command: bundle -v
 
