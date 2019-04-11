@@ -79,6 +79,7 @@ class OrganizationsController < ApplicationController
                                          :city,
                                          :state,
                                          :zip,
-                                         :description)
+                                         :description,
+                                         :logo_upload)
   end
 end
