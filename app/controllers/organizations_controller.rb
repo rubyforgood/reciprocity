@@ -25,7 +25,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
 
     respond_to do |format|
-      if @organization.save
+      if @organization.save!
         format.html { redirect_to @organization, notice: 'Organization was successfully created.' }
         format.json { render :show, status: :created, location: @organization }
       else
@@ -73,7 +73,6 @@ class OrganizationsController < ApplicationController
                                          :twitter_username,
                                          :facebook_username,
                                          :instagram_username,
-                                         :logo_upload,
                                          :phone,
                                          :street_address,
                                          :city,
