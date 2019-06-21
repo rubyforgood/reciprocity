@@ -8,20 +8,19 @@ class ListingsController < ApplicationController
   def show; end
 
   def new
-    @listing = Listing.new
   end
 
   def create
-    @listing = Listing.new(listing_params.merge(created_by_id: current_user.participants.first.id))
+    # @listing = Listing.new(listing_params.merge(created_by_id: current_user.participants.first.id))
 
-    respond_to do |format|
-      if @listing.save
-        format.html { redirect_to home_index_path(current_user), notice: t('listing.controller.create.success') }
-      else
-        format.html { render :new }
-        format.json { render json: @listing.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @listing.save
+    #     format.html { redirect_to home_index_path(current_user), notice: t('listing.controller.create.success') }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @listing.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   def edit; end
@@ -43,6 +42,20 @@ class ListingsController < ApplicationController
       format.html { redirect_to listings_url, notice: t('listing.controller.destroy.success') }
       format.json { head :no_content }
     end
+  end
+
+  def confirm
+    @listing = Listing.new(listing_params)
+
+    render react_component: 'listings/forms/Confirm', props: {
+      listing: @listing,
+      form: {
+        action: "/listings",
+        redirect: '/',
+        method: 'post',
+        token: session[:_csrf_token]
+      }
+    }
   end
 
   private

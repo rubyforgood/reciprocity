@@ -7,7 +7,7 @@ class HomeController < ApplicationController
       zip: participant.zip_code,
       listings: participant.listings.group_by(&:type),
       form: {
-        action: '/listings',
+        action: '/confirm_listing',
         method: 'post',
         token: session[:_csrf_token],
         creator_id: current_user.id
