@@ -11,8 +11,6 @@ class ListingsController < ApplicationController
     @listing = Listing.new
   end
 
-  def edit; end
-
   def create
     @listing = Listing.new(listing_params.merge(created_by_id: current_user.participants.first.id))
 
@@ -25,6 +23,8 @@ class ListingsController < ApplicationController
       end
     end
   end
+
+  def edit; end
 
   def update
     respond_to do |format|

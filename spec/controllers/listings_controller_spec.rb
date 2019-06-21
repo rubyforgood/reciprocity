@@ -47,14 +47,6 @@ RSpec.describe ListingsController, type: :controller do
     end
   end
 
-  describe 'GET #edit' do
-    it 'returns a success response' do
-      listing = Listing.create! valid_attributes
-      get :edit, params: { id: listing.to_param }, session: valid_session
-      expect(response).to be_successful
-    end
-  end
-
   describe 'POST #create' do
     context 'with valid params' do
       it 'creates a new Listing' do
@@ -67,6 +59,14 @@ RSpec.describe ListingsController, type: :controller do
         post :create, params: { listing: valid_attributes }, session: valid_session
         expect(response).to redirect_to(home_index_path(@user))
       end
+    end
+  end
+
+  describe 'GET #edit' do
+    it 'returns a success response' do
+      listing = Listing.create! valid_attributes
+      get :edit, params: { id: listing.to_param }, session: valid_session
+      expect(response).to be_successful
     end
   end
 
