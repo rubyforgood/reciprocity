@@ -20,15 +20,11 @@
         <% end %>
     </ul>
     <ul class="navbar-nav my-2 my-lg-0">
-    <% if user_signed_in? %>
+      <% if user_signed_in? %>
         <li class="nav-item active">
           <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
         </li>
-      <% else %>
-        <li class="nav-item active">
-          <%= link_to('Login', new_user_session_path, class: "nav-link")  %>
-        </li>
       <% end %>
-      </ul>
+    </ul>
   </div>
 </nav>
