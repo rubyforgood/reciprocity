@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   resources :home, only: [:index]
   resources :listings
+  post '/confirm_listing', to: 'listings#confirm'
+
   resources :organizations
   resources :positions
   resources :referral_codes
