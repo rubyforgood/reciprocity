@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   get '/welcome', to: 'users#welcome'
 
   resources :home, only: [:index]
+  resources :interactions
   resources :listings
   resources :organizations
   resources :positions

@@ -39,3 +39,11 @@ en:
         success: 'Listing was successfully updated.'
       destroy:
         success: 'Listing was successfully destroyed.'
+  interaction:
+    controller:
+      create:
+        success: 'Interaction was successfully created.'
+      update:
+        success: 'Interaction was successfully updated.'
+      destroy:
+        success: 'Interaction was successfully destroyed.'
