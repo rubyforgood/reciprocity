@@ -2,16 +2,15 @@ require 'rails_helper'
 
 RSpec.describe ListingsController, type: :controller do
   before do
-    @user = User.create!(email: 'person@example.com', password: 'xyz123456', confirmed_at: Time.now)
-    sign_in @user
+    sign_in user
   end
 
   let(:user) do
-    User.create!(email: 'persons@example.com', password: 'xyz123456', confirmed_at: Time.now)
+    User.create!(email: 'john@example.com', password: 'xyz123456', confirmed_at: Time.now)
   end
 
   let(:participant) do
-    Participant.create!(user: @user)
+    Participant.create!(user: user, display_name: "participant-john")
   end
 
   let(:valid_attributes) do
@@ -65,7 +64,7 @@ RSpec.describe ListingsController, type: :controller do
 
       it 'redirects to the created listing' do
         post :create, params: { listing: valid_attributes }, session: valid_session
-        expect(response).to redirect_to(home_index_path(@user))
+        expect(response).to redirect_to(home_index_path(user))
       end
     end
   end

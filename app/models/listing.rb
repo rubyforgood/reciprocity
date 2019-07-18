@@ -3,4 +3,6 @@ class Listing < ApplicationRecord
   has_many_attached :photos
 
   acts_as_taggable_on :tags
+
+  validates :type, :creator, presence: true
 end

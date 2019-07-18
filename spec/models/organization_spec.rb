@@ -1,5 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Organization, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Organization, type: :model do
+  context 'Validations' do
+    subject { build(:organization) }
+
+    it { is_expected.to validate_presence_of :name }
+  end
 end
