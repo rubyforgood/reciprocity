@@ -24,13 +24,13 @@ gem "aws-sdk-s3", require: false
 gem 'image_processing', '~> 1.2'
 
 group :development, :test do
+  gem 'brakeman', require: false
   gem 'bundler-audit'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
   gem 'pry'
   gem 'rspec-rails'
   gem 'rubocop'
-  gem 'brakeman', require: false
 end
 
 group :development do
@@ -42,7 +42,6 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'chromedriver-helper'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'simplecov'
