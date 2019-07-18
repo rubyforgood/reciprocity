@@ -6,6 +6,8 @@ class Participant < ApplicationRecord
 
   acts_as_taggable_on :interests
 
+  validates :display_name, :user, presence: true
+
   INTERESTS = %w[
     Art
     Social\ Justice

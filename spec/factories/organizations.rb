@@ -1,15 +1,15 @@
 FactoryBot.define do
   factory :organization do
-    name { 'MyString' }
-    website_url { 'MyString' }
-    twitter_username { 'MyString' }
-    facebook_username { 'MyString' }
-    instagram_username { 'MyString' }
-    phone { 'MyString' }
-    street_address { 'MyString' }
-    city { 'MyString' }
-    state { 'MyString' }
-    zip { 'MyString' }
-    description { 'MyString' }
+    name { Faker::Company.name }
+    website_url { Faker::Internet.url }
+    twitter_username { "@#{name}-org" }
+    facebook_username { "@#{name}-org" }
+    instagram_username { "@#{name}-org" }
+    phone { Faker::PhoneNumber.phone_number  }
+    street_address { Faker::Address.street_address }
+    city { Faker::Address.city }
+    state { Faker::Address.state }
+    zip { Faker::Address.zip_code }
+    description { "Description for oraganization #{name}" }
   end
 end

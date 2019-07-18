@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 describe ReferralCode, type: :model do
-  it { should belong_to(:participant) }
+  context 'Association' do
+    it { is_expected.to belong_to(:participant) }
+  end
 end

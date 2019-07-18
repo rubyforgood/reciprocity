@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :participants
 
+  validates :email, presence: true, uniqueness: true
+
   def participant
     participants.first
   end
