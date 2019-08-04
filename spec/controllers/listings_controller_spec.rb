@@ -18,6 +18,13 @@ RSpec.describe ListingsController, type: :controller do
     {
       title: 'Reciprocity Love',
       type: 'Offering',
+      description: 'A description',
+      reference_url: 'reference.url.com',
+      publish_start_date: Time.zone.now,
+      publish_end_date: Time.zone.now,
+      interaction_start_date: Time.zone.now,
+      interaction_end_date: Time.zone.now,
+      zip_code: '12345',
       created_by_id: participant.id
     }
   end
